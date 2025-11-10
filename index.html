@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivanta Flooring</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #f0f0f0;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: fixed;
+      top: 20px;
+      left: 40px;
+      z-index: 10;
+    }
+    header img {
+      height: 40px;
+    }
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-text {
+      position: absolute;
+      bottom: 80px;
+      left: 80px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px 40px;
+      border: 1px solid #fff;
+      font-size: 18px;
+      text-align: left;
+    }
+    .nav-arrows {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 20px;
+    }
+    .nav-arrows span {
+      cursor: pointer;
+      font-size: 32px;
+      color: #fff;
+      user-select: none;
+    }
+    section {
+      padding: 80px 10%;
+    }
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #f9f9f9;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    p {
+      line-height: 1.8;
+      color: #ccc;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 28px;
+      border: 1px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .button:hover {
+      background: #fff;
+      color: #121212;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      border-top: 1px solid #333;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Vivanta Logo">
+  </header>
+
+  <div class="hero">
+    <div class="slider">
+      <div class="slide active"><img src="img1.jpeg" alt="Piso 1"></div>
+      <div class="slide"><img src="img2.jpeg" alt="Piso 2"></div>
+      <div class="slide"><img src="img3.jpeg" alt="Piso 3"></div>
+      <div class="slide"><img src="img4.jpeg" alt="Piso 4"></div>
+    </div>
+    <div class="hero-text">
+      <strong>PISO VINÍLICO SPC</strong><br>
+      6mm de material<br>
+      1,5mm de manta IXPE<br>
+      0,7mm de capa de uso
+    </div>
+    <div class="nav-arrows">
+      <span id="prev">&#10094;</span>
+      <span id="next">&#10095;</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>Diseño europeo y precisión técnica</h2>
+    <p>Los pisos SPC de Vivanta combinan innovación, elegancia y durabilidad. Nuestra línea premium ofrece resistencia, estética natural y facilidad de instalación, inspirada en los más altos estándares de diseño europeo.</p>
+  </section>
+
+  <section>
+    <h2>Certificaciones SGS</h2>
+    <p>Garantizamos la máxima calidad a través de certificaciones internacionales SGS. Descargue los informes para conocer más sobre la resistencia, seguridad y sostenibilidad de nuestros productos.</p>
+    <ul>
+      <li><a href="docs/Impact_Resistance.pdf" class="button">Impact Resistance</a></li>
+      <li><a href="docs/Fire_Resistance.pdf" class="button">Fire Resistance</a></li>
+      <li><a href="docs/Formaldehyde_Emission.pdf" class="button">Formaldehyde Emission</a></li>
+      <li><a href="docs/Water_Resistance.pdf" class="button">Water Resistance</a></li>
+    </ul>
+    <a href="#" class="button">Ver catálogo</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Vivanta Flooring | Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    document.getElementById('next').addEventListener('click', () => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      slides[index].classList.remove('active');
+      index = (index - 1 + slides.length) % slides.length;
+      slides[index].classList.add('active');
+    });
+  </script>
+</body>
+</html>
